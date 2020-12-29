@@ -8,14 +8,14 @@ script:
   docker run -e CI=true parselynk/react-test npm test
 
 after_success:
-    - docker build -t parselynk/multi-client ./client
-    - docker build -t parselynk/multi-worker ./worker
-    - docker build -t parselynk/multi-server ./server
-    - docker build -t parselynk/multi-nginx ./nginx
+    - docker build -t rezakay/multi-client ./client
+    - docker build -t rezakay/multi-worker ./worker
+    - docker build -t rezakay/multi-server ./server
+    - docker build -t rezakay/multi-nginx ./nginx
 
     #Login to docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    - docker push parselynk/multi-client
-    - docker push parselynk/multi-worker
-    - docker push parselynk/multi-server
-    - docker push parselynk/multi-nginx
+    - docker push rezakay/multi-client
+    - docker push rezakay/multi-worker
+    - docker push rezakay/multi-server
+    - docker push rezakay/multi-nginx
