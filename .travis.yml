@@ -5,7 +5,7 @@ before_install:
   - docker build -t parselynk/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  docker run -e CI=true parselynk/react-test npm --test
+  docker run -e CI=true parselynk/react-test npm test
 
 after_success:
     - docker build -t parselynk/multi-client ./client
